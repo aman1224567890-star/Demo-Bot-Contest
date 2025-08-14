@@ -1,0 +1,13 @@
+Cmd:🤖Ai
+bjs:
+Api.sendMessage({
+  chat_id: chat.chatid,
+  text: "🚀 BB Ai Help – Your Bots.Business BJS Coding Assistant\n\nLearn and build faster with ready-to-use code snippets and step-by-step guidance.",
+  reply_markup: {
+    inline_keyboard: [
+      [
+        { text: "Open BB Ai Help", url: "https://chat.openai.com/g/g-mW7CZYp2i-bb-ai-help" }
+      ]
+    ]
+  }
+});

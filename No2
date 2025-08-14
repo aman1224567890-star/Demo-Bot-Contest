@@ -1,0 +1,16 @@
+Bjs:
+let image_url = "https://ibb.co/9kd2Xh7F"; // Your provided image
+
+Api.sendPhoto({
+photo: image_url,
+caption: "<b>• Dear User:"+user.first_name+" </b>\n━━━━━━━━━━━━━━━━━━━━━━━━\n<b>• Since You Haven't Registered Or Login Please Go To http://Bots.business And Download App.\n• Or Open Our Web And Register Or Login \n\n⁉️If Done Downloading Now Click 'Yes' Else 'No' Again And Try Again</b>",
+parse_mode: "HTML",
+reply_markup: {
+inline_keyboard: [
+[
+{ text: "Not Logined/Registeread ~Yes✅", callback_data: "/YesZ" },
+{ text: "Login Successful 👍🏻", callback_data: "/Yes" }
+]
+]
+}
+});

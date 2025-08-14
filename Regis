@@ -1,0 +1,16 @@
+cmd: /YesZ
+
+Bjs: 
+let image_url = "https://ibb.co/9kd2Xh7F"; // Your provided image
+Api.sendPhoto({
+photo: image_url,
+caption: "<b>• User:"+user.first_name+" </b>\n━━━━━━━━━━━━━━━━━━━━━━━━\n<b>• Since You Haven't Registered Or Login,\n\n 1: Open Our App,\n If You are New :-\n 1: Enter Your Email Or Gmail \n 2: Enter A 6-15 Digit Password As You Like But Remember It Enter Twice  For Confirmation And Register \n\nIf You Are Old :-\n -Enter Your Email And Password And Login\n⏭️After You all Done Come to the Bot And Click Login/Register Successful 👍🏻</b>",
+parse_mode: "HTML",
+reply_markup: {
+inline_keyboard: [
+[
+{ text: "Login/Register Successful 👍🏻", callback_data: "/Yes" }
+]
+]
+}
+});

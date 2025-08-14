@@ -1,0 +1,17 @@
+cmd: /Yes2
+
+bjs:
+let image_url = "https://ibb.co/Q3Q2f7bW"; // Your provided image
+
+Api.sendPhoto({
+photo: image_url,
+caption: "<b>F1: Since You Logged In Successful ✅\n\n⏩Lets Create Our First Bot ,Start Along With Me As Same As We Instruct You Are You Ready??? </b>",
+parse_mode: "HTML",
+reply_markup: {
+inline_keyboard: [
+[
+{ text: "Yes ✅", callback_data: "/Yes3" }
+]
+]
+}
+});

@@ -1,0 +1,18 @@
+Cmd_Name:/Yes
+
+bjs: 
+let image_url = "https://ibb.co/273dC4Cp"; // Your provided image
+
+Api.sendPhoto({
+photo: image_url,
+caption: "<b>"+user.first_name+" </b>\n━━━━━━━━━━━━━━━━━━━━━━━━\n<b>Is Your Interface Or Page Of Our App Like The Above ❔❔❔.</b>",
+parse_mode: "HTML",
+reply_markup: {
+inline_keyboard: [
+[
+{ text: "Yes ✅", callback_data: "/Yes2" },
+{ text: "No ❌ ", callback_data: "/No" }
+]
+]
+}
+});

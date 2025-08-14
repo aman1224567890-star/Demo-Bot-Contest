@@ -1,0 +1,23 @@
+cmd:🤨 Play Coding Quiz
+bjs:
+// Quiz data for Bots.Business coders (2 options only)
+let quiz = [
+  { q: "Is BJS sync or async?", correctText: "sync", wrongText: "async" },
+  { q: "Preferred method in BB: Bot.sendMessage or Api.sendMessage?", correctText: "Api.sendMessage", wrongText: "Bot.sendMessage" },
+  { q: "Does BB use callbacks for async?", correctText: "Yes", wrongText: "No" }
+];
+
+// Save quiz state
+User.setProperty("quizData", quiz, "json");
+User.setProperty("quizIndex", 0, "integer");
+
+function sendQuestion(i) {
+  let q = quiz[i];
+  let buttons = [
+    [{ title: q.correctText, command: "/quizCorrect " + i }],
+    [{ title: q.wrongText, command: "/quizWrong " + i }]
+  ];
+  Bot.sendInlineKeyboard(buttons, "Question " + (i+1) + ":\n" + q.q);
+}
+
+sendQuestion(0);

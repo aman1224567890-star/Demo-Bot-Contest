@@ -1,0 +1,16 @@
+cmd: 🛑Support
+bjs :
+Api.sendMessage({
+  chat_id: user.telegramid,
+  text: "📌 Useful Bots.Business Links:",
+  reply_markup: {
+    inline_keyboard: [
+      [{ text: "🔍 Status Page", url: "http://up.bots.business" }],
+      [{ text: "🛠 Main App", url: "http://app.bots.business" }],
+      [{ text: "📚 How-To Guides", url: "https://help.bots.business/howto" }],
+      [{ text: "ℹ General Help", url: "https://help.bots.business" }],
+      [{ text: "📄 Gist Example 1", url: "https://gist.github.com/bots-business/a19a360be924043fd00ed96d4965672a" }],
+      [{ text: "📄 Gist Example 2", url: "https://gist.github.com/bots-business/60746e62838a0d26bbfd4c40c5df919e" }]
+    ]
+  }
+});

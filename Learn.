@@ -1,0 +1,48 @@
+Cmd: 😍Learn
+Bjs:
+let cheatSheet = 
+"🛠 *Bots.Business Basic Codes Cheat Sheet*\n" +
+"Think of this as your BB survival kit — the 'must-know' codes to get things done.\n" +
+"No async, no fancy stuff — just working basics.\n\n" +
+
+"1️⃣ *Send a Message*\n" +
+"📢 Say something to the user.\n" +
+"```\nBot.sendMessage(\"Hello! Welcome to my bot 🤖\");\n```\n\n" +
+
+"2️⃣ *Send a Keyboard*\n" +
+"🎯 Let users choose buttons instead of typing.\n" +
+"```\nBot.sendKeyboard(\n  \"Option 1, Option 2\",\n  \"Choose one:\"\n);\n```\n\n" +
+
+"3️⃣ *Send an Inline Keyboard*\n" +
+"🔗 Clickable buttons under your message.\n" +
+"```\nApi.sendMessage({\n  text: \"Click a button:\",\n  reply_markup: {\n    inline_keyboard: [\n      [{ text: \"Google\", url: \"https://google.com\" }],\n      [{ text: \"Next\", callback_data: \"next_step\" }]\n    ]\n  }\n});\n```\n\n" +
+
+"4️⃣ *Save Data*\n" +
+"💾 Remember something about the user.\n" +
+"```\nUser.setProperty(\"name\", \"Alex\", \"string\");\n```\n\n" +
+
+"5️⃣ *Get Saved Data*\n" +
+"📂 Read what you saved before.\n" +
+"```\nlet name = User.getProperty(\"name\");\nBot.sendMessage(\"Your name is: \" + name);\n```\n\n" +
+
+"6️⃣ *Conditional Check*\n" +
+"⚖️ Do something only if a condition is true.\n" +
+"```\nlet coins = User.getProperty(\"coins\");\nif (coins >= 10) {\n  Bot.sendMessage(\"You have enough coins!\");\n} else {\n  Bot.sendMessage(\"Not enough coins 😢\");\n}\n```\n\n" +
+
+"7️⃣ *Call Another Command*\n" +
+"📞 Jump to another bot command.\n" +
+"```\nBot.runCommand(\"/start\");\n```\n\n" +
+
+"8️⃣ *Work with Variables*\n" +
+"🧮 Store something temporarily.\n" +
+"```\nlet score = 5;\nscore = score + 1;\nBot.sendMessage(\"Score: \" + score);\n```\n\n" +
+
+"9️⃣ *Send a Photo*\n" +
+"📷 Share an image.\n" +
+"```\nApi.sendPhoto({\n  photo: \"https://example.com/photo.jpg\",\n  caption: \"Nice view!\"\n});\n```\n\n" +
+
+"🔟 *HTTP Request (Get Data from Web)*\nMore Codes And Learning Bjs Can Be Added this is just and demo Bot..\n\n" +
+"🌐 Fetch something from the internet.\n" +
+"```\nHTTP.get({\n  url: \"https://api.example.com/data\",\n  success: \"/onSuccess\",\n  error: \"/onError\"\n});\n```";
+
+Bot.sendMessage(cheatSheet);

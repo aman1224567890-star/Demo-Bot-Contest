@@ -1,0 +1,42 @@
+var balance = User.getProperty("balance")
+if (!balance) {
+  balance = 0
+}
+
+var refAmount = 1 // per refer amount to add to referrer
+var referCount = User.getProperty("ReferStatus")
+
+if (referCount == undefined) {
+  let refUser = RefLib.getAttractedBy()
+  if (refUser) {
+    // Update referrer's balance property
+    var refBalProp = Libs.ResourcesLib.anotherUserRes(
+      "balance",
+      refUser.telegramid
+    )
+    refBalProp.add(refAmount)
+
+    // Notify referrer with inline button to run /xyz123
+    Api.sendMessage({
+      chat_id: refUser.telegramid,
+      text: "🎉 You have received " + refAmount + " Points from " + user.first_name,
+      parse_mode: "html",
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: "➡ Continue", callback_data: "/xyz123" }]
+        ]
+      }
+    })
+
+    User.setProperty("ReferStatus", "valid", "string")
+  }
+}
+
+// Update referred user's own balance property
+balance += refAmount
+User.setProperty("balance", balance, "float")
+
+Bot.sendKeyboard(
+  "👫Game: Invite And Get Premium Bjs\n🤨 Play Coding Quiz,😍Learn\n🤖Ai,🛑Support,🎉 Balance",
+  "📋 Please choose an option:"
+)

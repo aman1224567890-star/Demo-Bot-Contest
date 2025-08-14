@@ -1,0 +1,25 @@
+cmd : 🎉 Balance
+bjs:
+var perref = 1; // example points per referral
+var balance = User.getProperty("balance");
+
+var lib = Libs.ReferralLib;
+var refList = lib.currentUser.refList.get();
+
+var messageText = 
+  "<b>🛑 Invite to Earn " + perref + " Point Per Invite</b>\n" +
+  "<b>🌐 User Balance : " + balance.toFixed(2) + " Rs........</b>";
+
+Api.sendMessage({
+  text: messageText,
+  parse_mode: "html",
+  disable_web_page_preview: true,
+  reply_markup: {
+    inline_keyboard: [
+      [
+        { text: "🔍 My Refers", callback_data: "/myrefers" },
+        { text: "🔥 Top List", callback_data: "/toplist" }
+      ]
+    ]
+  }
+});

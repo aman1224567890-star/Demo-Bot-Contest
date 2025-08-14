@@ -1,0 +1,25 @@
+cmd: /quizWrong
+bjs:
+let quiz = User.getProperty("quizData");
+let index = parseInt(params);
+
+if (!quiz || isNaN(index)) {
+  Bot.sendMessage("Quiz not started. Use /quiz.");
+  return;
+}
+
+// ❌ Do something for wrong answer
+Bot.sendMessage("❌ Wrong! No points.");
+
+// Move to next question
+index++;
+if (index < quiz.length) {
+  let q = quiz[index];
+  let buttons = [
+    [{ title: q.correctText, command: "/quizCorrect " + index }],
+    [{ title: q.wrongText, command: "/quizWrong " + index }]
+  ];
+  Bot.sendInlineKeyboard(buttons, "Question " + (index+1) + ":\n" + q.q);
+} else {
+  Bot.sendMessage("🏁 Quiz finished!");
+}

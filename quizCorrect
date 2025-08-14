@@ -1,0 +1,29 @@
+cmd : /quizCorrect
+bjs :
+let quiz = User.getProperty("quizData");
+let index = parseInt(params);
+
+if (!quiz || isNaN(index)) {
+  Bot.sendMessage("Quiz not started. Use /quiz.");
+  return;
+}
+
+// ✅ Do something for correct answer
+let balance = User.getProperty("balance") || 0;
+balance += 10;
+User.setProperty("balance", balance, "integer");
+
+Bot.sendMessage("✅ Correct! +10 points.\n💰 Balance: " + balance);
+
+// Move to next question
+index++;
+if (index < quiz.length) {
+  let q = quiz[index];
+  let buttons = [
+    [{ title: q.correctText, command: "/quizCorrect " + index }],
+    [{ title: q.wrongText, command: "/quizWrong " + index }]
+  ];
+  Bot.sendInlineKeyboard(buttons, "Question " + (index+1) + ":\n" + q.q);
+} else {
+  Bot.sendMessage("🏁 Quiz finished!");
+}

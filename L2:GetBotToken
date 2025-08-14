@@ -1,0 +1,15 @@
+cmd: /Yes3
+
+let image_url = "https://ibb.co/DPWbZfd9"; // Your provided image
+
+Api.sendPhoto({
+photo: image_url,
+caption: "<b>1: Now Go To @BotFather And Send messages to the Father Bot /newbot \n\n2: Enter A Name for your Bot Then It will as you A Username \n\n3: Type a username With help of underscore No Gab And End of bot Name Write Bot, \n\n4: Copy Api Token ...... \n\n5: Back to This Bot Click Yes After You Done 👍🏻 [Take Help Of Screenshot]</b>",
+parse_mode: "HTML",
+reply_markup: {
+inline_keyboard: [
+[
+{ text: "Done 'Yes' ✅", callback_data: "/Yes4" }]
+]
+}
+});

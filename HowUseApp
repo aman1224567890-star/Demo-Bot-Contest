@@ -1,0 +1,16 @@
+cmd: /Yes4
+
+Bjs:
+let image_url = "https://ibb.co/5XS51QgM"; // Your provided image
+
+Api.sendPhoto({
+photo: image_url,
+caption: "<b>⏭️On Main Page Click Create New Bot Or + [Plus Symbol ] Then,\n⏭️You Will See An Interface like Above Image \n⏭️Enter The Name Which You Gave on Bot Father Or Anything \n⏭️Now Paste The Api Token You Copied\n⏭️ Click Launch Bot Twice After Done Click Next On this Bot.... </b>",
+parse_mode: "HTML",
+reply_markup: {
+inline_keyboard: [
+[
+{ text: "Next ⏭️ ", callback_data: "/Yes5" }]
+]
+}
+});

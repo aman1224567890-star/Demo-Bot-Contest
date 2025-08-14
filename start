@@ -1,0 +1,58 @@
+// Load Libraries
+
+let image_url = "https://ibb.co/DgSkNj8F"; // Direct image link
+Api.sendPhoto({
+  photo: image_url,
+  caption: "<b>👀Hello Dear User: " + user.first_name + " </b>\n━━━━━━━━━━━━━━━━━━━━━━━━\n<b>Please Tell Us Have You Logged In Or Registered On http://Bots.business  Our Website Or App Or Not ⁉️❔</b>",
+  parse_mode: "HTML",
+  reply_markup: {
+    inline_keyboard: [
+      [
+        { text: "Yes ✅", callback_data: "/Yes" },
+        { text: "No ❌", callback_data: "/No" }
+      ]
+    ]
+  }
+});
+
+var hh = "";
+if (user.username) {
+  hh = "[@"+ user.username + "]";
+}
+
+function touchingOwnLink() {
+  Bot.sendMessage("*❌ Stop Clicking Your Own Link*");
+}
+
+function attractedByUser(refUser) {
+  Api.sendMessage({
+    chat_id: refUser.telegramid,
+    text:
+      "<b>⏭️ You Got a New </b><a href='tg://user?id=" +
+      user.telegramid +
+      "'>Referral</a> " +
+      hh +
+      "\n<i>💡 Referral Points Will Be Allotted After They Start Our Bot</i>",
+    parse_mode: "html",
+    disable_web_page_preview: true
+  });
+}
+
+function alreadyStarted() {
+  Bot.sendMessage("*🚫 You Have Already Started The Bot *");
+}
+
+var tracks = {
+  onTouchOwnLink: touchingOwnLink,
+  onAtractedByUser: attractedByUser,
+  onAlreadyAttracted: alreadyStarted,
+  linkPrefix: "Bot"
+};
+
+RefLib.track(tracks);
+
+if (!User.getProperty("UserDone")) {
+  User.setProperty("UserDone", true, "boolean");
+  var stat = Libs.ResourcesLib.anotherChatRes("status", "global");
+  stat.add(1);
+} // <-- closing the IF properly

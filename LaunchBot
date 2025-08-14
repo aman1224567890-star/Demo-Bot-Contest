@@ -1,0 +1,28 @@
+cmd: /Yes5
+
+bjs:
+let referrer = params; // if joined via referral link
+
+if(referrer){
+  refLib.track({
+    user: referrer,
+    refUser: user
+  });
+
+  // Reward referrer
+  Api.runCommand("onReferralReward", {ref: referrer});
+}
+
+let image_url = "https://ibb.co/fYbpW9hm"; // Your provided image
+
+Api.sendPhoto({
+photo: image_url,
+caption: "<b>✨Our App Uses Bjs Java Code \n\n 1: Click New Commond Or Pencil Icon \n2: New Page Open As Shown if above photo \n3: In Commond Section You Can /start For First Time Then Next Commond As your wish Linking With Other \n4: For Testing In Answer Write Any Text You Want...See Screen Short Above As Same You do\n5: Click Create Next.\n6: launch the Bot on telegram type /start Your Will See A message Send by the Bot That You Made ,,SO EASY RIGHT 👍🏻,,,Click Main Menu  Let's Now move to Next ⏭️</b>",
+parse_mode: "HTML",
+reply_markup: {
+inline_keyboard: [
+[
+{ text: "Main-Menu 🏠 ", callback_data: "/mainmenu" }]
+]
+}
+});
